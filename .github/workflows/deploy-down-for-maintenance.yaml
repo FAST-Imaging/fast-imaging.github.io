@@ -12,7 +12,7 @@ jobs:
           cd build
           mkdir documentation
           cd documentation
-          echo "<h1>This webpage is Down for Maintenance</h1>Please try again later." > index.html
+          echo "<!DOCTYPE html><html><head><title>Down for Maintenance</title><meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\"><meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\"></head><body><h1>This webpage is Down for Maintenance</h1>Please try again later.</body></html>" > index.html
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
