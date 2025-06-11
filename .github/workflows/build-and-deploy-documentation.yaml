@@ -11,6 +11,10 @@ jobs:
         with:
           repository: smistad/FAST
           ref: master
+      - name: Install dependencies
+        run: |
+          sudo apt install bison flex # Needed by Doxygen
+          pip3 install jinja2         # Needed by M.css
       - name: Build docs
         run: |
           mkdir build
@@ -24,7 +28,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build/documentation/
+          path: build/documentation/html/
           retention-days: 1
   deploy:
     runs-on: ubuntu-24.04
