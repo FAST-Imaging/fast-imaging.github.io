@@ -6,14 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
+      - name: Chechout FAST
+        uses: actions/checkout@v4
+        with:
+          repository: smistad/FAST
+          ref: master
       - name: Build docs
         run: |
           mkdir build
           cd build
-          mkdir documentation
-          cd documentation
-          echo "<h1>Under construction</h1>" > index.html
-          echo "<h1>Test</h1>" > test.html
+          cmake ../doc/ # This will only build the documentation of FAST
+          make -j4 documentation
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
