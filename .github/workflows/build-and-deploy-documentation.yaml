@@ -21,9 +21,7 @@ jobs:
           path: |
             ${{ github.workspace }}/build/external/doxygen/
             ${{ github.workspace }}/build/external/mcss/
-          key: |
-            ${{ hashFiles('${{ github.workspace }}/cmake/ExternalDoxygen.cmake') }}
-            ${{ hashFiles('${{ github.workspace }}/cmake/ExternalMCSS.cmake') }}
+          key: ${{ hashFiles('${{ github.workspace }}/cmake/ExternalDoxygen.cmake') }}-${{ hashFiles('${{ github.workspace }}/cmake/ExternalMCSS.cmake') }}
       - name: Build docs
         run: |
           mkdir build
