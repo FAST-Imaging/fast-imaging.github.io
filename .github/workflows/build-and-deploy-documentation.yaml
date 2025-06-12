@@ -15,13 +15,13 @@ jobs:
         run: |
           sudo apt install bison flex # Needed by Doxygen
           pip3 install jinja2         # Needed by M.css
-      - name: Cache Doxygen and M.CSS externals
-        uses: actions/cache@v4
-        with:
-          path: |
-            ${{ github.workspace }}/build/external/doxygen/
-            ${{ github.workspace }}/build/external/mcss/
-          key: ${{ hashFiles('${{ github.workspace }}/cmake/ExternalDoxygen.cmake', '${{ github.workspace }}/cmake/ExternalMCSS.cmake') }}
+#      - name: Cache Doxygen and M.CSS externals
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ${{ github.workspace }}/build/external/doxygen/
+#            ${{ github.workspace }}/build/external/mcss/
+#          key: ${{ hashFiles('${{ github.workspace }}/cmake/ExternalDoxygen.cmake', '${{ github.workspace }}/cmake/ExternalMCSS.cmake') }}
       - name: Build docs
         run: |
           mkdir build
